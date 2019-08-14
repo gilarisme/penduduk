@@ -1,0 +1,102 @@
+<div ng-controller="PendudukController">
+	<div class="col-md-12">
+		<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">Input Data penduduk</h3>
+			</div>
+			<form class="form-horizontal">
+				<div class="box-body">
+
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="nik">NIK:</label>
+						<div class="col-sm-10">
+							<input ng-model="penduduk.noNik" type="number"
+								class="form-control" placeholder="Masukkan Nomor NIK">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="kk">No.KK:</label>
+						<div class="col-sm-10">
+							<input ng-model="penduduk.noKK" type="number"
+								class="form-control" id="kk" placeholder="Masukkan No. KK"
+								name="kk">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Nama:</label>
+						<div class="col-sm-10">
+							<input ng-model="penduduk.nama" type="text" class="form-control"
+								placeholder="Masukkan nama">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Alamat
+							Dukuh:</label>
+						<div class="col-sm-10">
+							<select name="repeatSelect" id="repeatSelect"
+								ng-model="penduduk.alamatDesa" class="form-control select2"
+								style="width: 100%;">
+								<option value="">---Please select---</option>
+								<option ng-repeat="option in penduduk.availableOptions"
+									value="{{option.id}}">{{option.name}}</option>
+
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="tempatlahir">Tempat:</label>
+						<div class="col-sm-10">
+							<input ng-model="penduduk.tempatLahir" type="text"
+								class="form-control" placeholder="Masukkan tempat lahir">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2">Tanggal Lahir:</label>
+						<div class="col-sm-10">
+							<div class="input-group date ">
+								<div class="input-group-addon">
+									<i class="fa fa-calendar"></i>
+								</div>
+								<input ng-model="penduduk.tanggalLahir" type="text"
+									class="form-control pull-right" id="datepicker1"
+									placeholder="Masukkan Tanggal lahir">
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Status:</label>
+						<div class="col-sm-10">
+							<input ng-model="penduduk.status" type="text"
+								class="form-control" placeholder="Masukkan status">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pwd">Pekerjaan:</label>
+						<div class="col-sm-10">
+							<input ng-model="penduduk.pekerjaan" type="text"
+								class="form-control" placeholder="Masukkan Pekerjaan">
+						</div>
+					</div>
+
+					<div class="box-footer">
+						<button type="submit" class="btn btn-default">Cancel</button>
+						<button ng-click="simpanPenduduk()" type="submit"
+							class="btn btn-success pull-right">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+	$(function() {
+		$('#datepicker1').datepicker({
+			format : 'dd-mm-yyyy',
+			autoclose : true,
+		todayHighlight : true,
+		});
+	});
+
+	</script>
+</div>
+
